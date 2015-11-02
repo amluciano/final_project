@@ -2,6 +2,7 @@ from django.views.generic import TemplateView, CreateView
 from django.core.urlresolvers import reverse_lazy
 from .models import *
 from django.views.generic import ListView
+from django.views.generic import DetailView
 
 class Home(TemplateView):
   template_name = "home.html"
@@ -19,3 +20,7 @@ class PostCreateView(CreateView):
 class PostListView(ListView):
     model = Post
     template_name = "post/post_list.html"
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post/post_detail.html'

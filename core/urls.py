@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^user/', include('django.contrib.auth.urls')),
                        url(r'^post/create/$', PostCreateView.as_view(), name='post_create'),
                        url(r'post/$', PostListView.as_view(), name='post_list'),
+                       url(r'post/(?P<pk>\d+)/$', PostDetailView.as_view(), name='post_detail'),
                       )
