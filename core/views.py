@@ -59,7 +59,7 @@ class CommentCreateView(CreateView):
 
 class CommentUpdateView(UpdateView):
   model = Comment
-  pk_url_kwargs = 'comment_pk'
+  pk_url_kwarg = 'comment_pk'
   template_name = 'comment/comment_form.html'
   fields = ['text']
   
