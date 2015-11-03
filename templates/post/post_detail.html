@@ -7,4 +7,5 @@
 <p><a href="{% url 'post_update' pk=post.id %}">Edit post</a></p>
 <p><a href="{% url 'post_delete' pk=post.id %}">Delete post</a></p>
 {% endif %}
+<p><a href="{% url 'comment_create' pk=post.id %}">Write a response</a></p>
 {% endblock %}
