@@ -7,5 +7,14 @@
 <p><a href="{% url 'post_update' pk=post.id %}">Edit post</a></p>
 <p><a href="{% url 'post_delete' pk=post.id %}">Delete post</a></p>
 {% endif %}
+{% if comments.count > 0 %}
+<h3>{{ comments.count }} Comment{{ comments.count|pluralize }}:</h3>
+{% endif %}
+{% for comment in comments %}
+<div class="panel">
+  <p>{{ comment.text }}<p>
+  <p>Comment posted by {{ comment.user.username }} on {{ comment.created_at }}</p>
+</div>
+{% endfor %}
 <p><a href="{% url 'comment_create' pk=post.id %}">Write a response</a></p>
 {% endblock %}
