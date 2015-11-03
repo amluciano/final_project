@@ -3,6 +3,8 @@ from django.core.urlresolvers import reverse_lazy
 from .models import *
 from django.views.generic import ListView
 from django.views.generic import DetailView
+from django.views.generic import UpdateView
+from django.views.generic import DeleteView
 
 class Home(TemplateView):
   template_name = "home.html"
@@ -24,3 +26,14 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post/post_detail.html'
+    
+
+class PostUpdateView(UpdateView):
+    model = Post
+    template_name = 'post/post_form.html'
+    fields = ['title', 'description']
+    
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'post/post_confirm_delete.html'
+    success_url = reverse_lazy('post_list')
