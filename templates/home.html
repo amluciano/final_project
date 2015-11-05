@@ -1,13 +1,17 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
 {% if user.is_authenticated %}
 <div class="jumbotron">
-  <h1>Welcome back!</h1>
+  <h1><center>Welcome back!</center></h1>
+  <center><img src="{% static 'img/bookworm.jpg' %}"></center>
 </div>
 {% else %}
 <div class="jumbotron">
-  <h1>Welcome to Angie's book review website for all readers</h1>
-  <p><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Sign up</a></p>
+  <h1><center>Welcome to Angie's book review</center></h1>
+  <p><center><strong>A website for all book worms</strong></center></p>
+  <p><center><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Sign up</a></center></p>
+  <center><img src="{% static 'img/bookworm.jpg' %}"></center>
 </div>
 {% endif %}
 {% endblock %}
