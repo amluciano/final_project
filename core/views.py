@@ -125,3 +125,12 @@ class UserDetailView(DetailView):
   model = User
   slug_field = 'username'
   template_name = 'user/user_detail.html'
+  
+  def get_context_data(self, **kwargs):
+    context = super(UserDetailView, self).get_context_data(**kwargs)
+    user_in_view = User.objects.get(username=self.kwargs['slug'])
+    posts = Post.objects.filter(user=user_in_view)
+    context['posts'] = posts
+    comments = Comment.objects.filter(user=user_in_view)
+    context['comments'] = comments
+    return context
