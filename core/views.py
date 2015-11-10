@@ -116,7 +116,7 @@ class VoteFormView(FormView):
       prev_votes = Vote.objects.filter(user=user, post=post)
       has_voted = (prev_votes.count()>0)
       if not has_voted:
-        Vote.objects.create(user=user, comment=comment)
+        Vote.objects.create(user=user, post=post)
       else:
         prev_votes[0].delete()
       return redirect('post_list')
