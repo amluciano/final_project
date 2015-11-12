@@ -21,6 +21,7 @@ class PostCreateView(CreateView):
 class PostListView(ListView):
   model = Post
   template_name = "post/post_list.html"
+  paginate_by = 5
 
 class PostDetailView(DetailView):
   model = Post
@@ -155,10 +156,10 @@ class UserDeleteView(DeleteView):
   model = User
   slug_field = "username"
   template_name = 'user/user_confirm_delete.html'
-  
+
   def get_success_url(self):
           return reverse_lazy('logout')
-  
+
   def get_object(self, *args, **kwargs):
     object = super(UserDeleteView, self).get_object(*args, **kwargs)
     if object != self.request.user:
@@ -170,7 +171,7 @@ class UserDeleteView(DeleteView):
     user.is_active = False
     user.save()
     return redirect(self.get_success_url())
-  
+
 class SearchPostListView(PostListView):
   def get_queryset(self):
     incoming_query_string = self.request.GET.get('query', '')
