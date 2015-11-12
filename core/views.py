@@ -11,7 +11,7 @@ class Home(TemplateView):
 class PostCreateView(CreateView):
   model = Post
   template_name = "post/post_form.html"
-  fields = ['title', 'description']
+  fields = ['title', 'author', 'description']
   success_url = reverse_lazy('post_list')
 
   def form_valid(self, form):
@@ -22,7 +22,7 @@ class PostListView(ListView):
   model = Post
   template_name = "post/post_list.html"
   paginate_by = 5
-  
+
   def get_context_data(self, **kwargs):
     context = super(PostListView, self).get_context_data(**kwargs)
     user_votes = Post.objects.filter(vote__user=self.request.user)

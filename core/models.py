@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse
 
 class Post(models.Model):
   title = models.CharField(max_length=300)
+  author = models.CharField(max_length=300)
   description = models.TextField(null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   user = models.ForeignKey(User)
