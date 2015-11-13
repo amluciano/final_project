@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>{{ post.title }}</h1>
+<p>By {{ post.author }}</p>
 <p>{{ post.description }}</p>
 <p>Posted by <a href="{% url 'user_detail' slug=post.user.username %}">{{ post.user.username }}</a> on {{ post.created_at }}</p>
 {% if post.user == user %}
