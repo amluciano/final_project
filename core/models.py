@@ -2,9 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+RATING_CHOICES = (
+(0, 'None'),
+(1, '*'),
+(2, '**'),
+(3, '***'),
+(4, '****'),
+(5, '*****'),
+)
+
 class Post(models.Model):
   title = models.CharField(max_length=300)
   author = models.CharField(max_length=300)
+  rating = models.IntegerField(choices=RATING_CHOICES, default=0)
   description = models.TextField(null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   user = models.ForeignKey(User)
