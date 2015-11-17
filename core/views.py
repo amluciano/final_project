@@ -11,7 +11,7 @@ class Home(TemplateView):
 class PostCreateView(CreateView):
   model = Post
   template_name = "post/post_form.html"
-  fields = ['title', 'author', 'rating', 'description']
+  fields = ['title', 'author', 'rating', 'category', 'description']
   success_url = reverse_lazy('post_list')
 
   def form_valid(self, form):
@@ -47,7 +47,7 @@ class PostDetailView(DetailView):
 class PostUpdateView(UpdateView):
   model = Post
   template_name = 'post/post_form.html'
-  fields = ['title', 'author', 'rating', 'description']
+  fields = ['title', 'author', 'rating', 'category', 'description']
 
   def get_object(self, *args, **kwargs):
     object = super(PostUpdateView, self).get_object(*args, **kwargs)
