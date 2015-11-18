@@ -40,6 +40,7 @@
   <span class="glyphicon glyphicon-star-empty"></span>
   <span class="glyphicon glyphicon-star-empty"></span>
 {% endif %}
+<p>{{ post.category }}</p>
 <p>{{ post.description }}</p>
 <p>Posted by <a href="{% url 'user_detail' slug=post.user.username %}">{{ post.user.username }}</a> on {{ post.created_at }}</p>
 {% if post.user == user %}
