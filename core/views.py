@@ -64,7 +64,7 @@ class PostDeleteView(DeleteView):
     object = super(PostDeleteView, self).get_object(*args, **kwargs)
     if object.user != self.request.user:
       raise PermissionDenied()
-      return object
+    return object
 
 class CommentCreateView(CreateView):
   model = Comment
@@ -106,7 +106,7 @@ class CommentDeleteView(DeleteView):
     object = super(CommentDeleteView, self).get_object(*args, **kwargs)
     if object.user != self.request.user:
       raise PermissionDenied()
-      return object
+    return object
 
 class VoteFormView(FormView):
   form_class = VoteForm
