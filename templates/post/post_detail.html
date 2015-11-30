@@ -61,6 +61,8 @@
 <p>Childrens</p>
 {% elif post.category == 7 %}
 <p>Nonfiction</p>
+{% elif post.category == 8 %}
+<p>Biography</p>
 {% endif %}
 <p>{{ post.description }}</p>
 <p>Posted by <a href="{% url 'user_detail' slug=post.user.username %}">{{ post.user.username }}</a> on {{ post.created_at }}</p>

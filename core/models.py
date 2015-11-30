@@ -11,6 +11,7 @@ CATEGORY_CHOICES = (
 (5, 'Thrillers'),
 (6, 'Childrens'),
 (7, 'Nonfiction'),
+(8, 'Biography'),
 )
 
 RATING_CHOICES = (
